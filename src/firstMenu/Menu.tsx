@@ -1,5 +1,7 @@
 import ShowProduct from "./ShowProduct";
 import image from "../assets/image.png";
+import francais from "../assets/francais.png";
+import english from "../assets/english.png";
 import { useEffect, useState } from "react";
 
 function Menu() {
@@ -337,7 +339,7 @@ function Menu() {
             }}
           >
             <img
-              src={image}
+              src={francais}
               alt="francais"
               className="w-full h-full object-cover"
             />
@@ -349,7 +351,7 @@ function Menu() {
             }}
           >
             <img
-              src={image}
+              src={english}
               alt="english"
               className="w-full h-full object-cover"
             />
@@ -357,12 +359,33 @@ function Menu() {
         </div>
         <p className="text-3xl font-bold">Your Restaurant</p>
       </div>
+      <div className="flex justify-start bg-white shadow-md py-4 sticky top-0 z-50 overflow-x-auto whitespace-nowrap">
+        {products.map((category) => (
+          <button
+            className="text-2xl mx-4"
+            onClick={() => {
+              const element = document.getElementById(category.type);
+              if (element) {
+                const y =
+                  element.getBoundingClientRect().top + window.scrollY + -80;
+
+                window.scrollTo({ top: y, behavior: "smooth" });
+              }
+            }}
+          >
+            {category.type}
+          </button>
+        ))}
+      </div>
+
       {products.map((category, index) => (
         <div key={index}>
           <div className="text-center my-5">
-            <p className="text-2xl">{category.type}</p>
+            <p className="text-2xl" id={category.type}>
+              {category.type}
+            </p>
           </div>
-          <div className="place-self-center">
+          <div className="justify-items-center">
             {category.products.map((product, idx) => (
               <ShowProduct key={idx} {...product} />
             ))}
@@ -372,13 +395,13 @@ function Menu() {
       {isVisible && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-5 right-5 bg-white p-2 rounded-full shadow-lg transition-opacity duration-300"
+          className="fixed bottom-5 right-5 bg-black p-2 rounded-full shadow-lg transition-opacity duration-300"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="currentColor"
+            stroke="white"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
