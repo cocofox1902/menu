@@ -5,6 +5,7 @@ type ProductProps = {
   price: string;
   description: string;
   image: string;
+  specification: string[];
 };
 
 const ShowProduct: React.FC<ProductProps> = ({
@@ -12,6 +13,7 @@ const ShowProduct: React.FC<ProductProps> = ({
   price,
   description,
   image,
+  specification,
 }) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
@@ -29,7 +31,18 @@ const ShowProduct: React.FC<ProductProps> = ({
         }`}
       />
       {isHovered && (
-        <div className="absolute inset-0 flex flex-col items-center text-center p-4">
+        <div className="absolute inset-0 flex flex-col items-center text-center p-1">
+          <div className="flex gap-2 mt-1">
+            {specification.map((spec, index) => (
+              <span key={index} className="text-white text-xl">
+                {spec === "Viande" && "🥩"}
+                {spec === "Poisson" && "🐟"}
+                {spec === "Végétarien" && "🥦"}
+                {spec === "Vegan" && "🌱"}
+                {spec === "Sans gluten" && "🚫🌾"}
+              </span>
+            ))}
+          </div>
           <h2 className="text-white font-bold text-lg mt-5">{name}</h2>
           <p className="text-white font-bold text-4xl mt-5">{price}</p>
           <p className="bg-white p-3 rounded-lg shadow text-sm mt-16">

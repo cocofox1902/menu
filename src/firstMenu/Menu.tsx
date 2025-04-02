@@ -15,6 +15,7 @@ function Menu() {
           description:
             "Laitue croquante, poulet grillé, parmesan et sauce César maison.",
           image: image,
+          specification: ["Viande"],
         },
         {
           name: "Soupe à l'oignon",
@@ -22,6 +23,7 @@ function Menu() {
           description:
             "Soupe traditionnelle gratinée avec du fromage fondu et des croûtons.",
           image: image,
+          specification: ["Végétarien"],
         },
         {
           name: "Bruschetta tomate & basilic",
@@ -29,6 +31,7 @@ function Menu() {
           description:
             "Tranches de pain grillé avec tomates fraîches, basilic et huile d'olive.",
           image: image,
+          specification: ["Vegan", "Végétarien"],
         },
         {
           name: "Foie gras de canard",
@@ -36,6 +39,7 @@ function Menu() {
           description:
             "Foie gras accompagné de son chutney de figues et pain grillé.",
           image: image,
+          specification: ["Viande"],
         },
         {
           name: "Carpaccio de bœuf",
@@ -43,6 +47,7 @@ function Menu() {
           description:
             "Fines tranches de bœuf marinées avec parmesan et roquette.",
           image: image,
+          specification: ["Viande"],
         },
       ],
     },
@@ -55,6 +60,7 @@ function Menu() {
           description:
             "Deux steaks juteux, du fromage fondant, un pain moelleux... Le vrai goût du burger, fait avec passion !",
           image: image,
+          specification: ["Viande"],
         },
         {
           name: "Burger Bacon & Cheddar",
@@ -62,6 +68,7 @@ function Menu() {
           description:
             "Un délicieux burger avec du bacon croustillant et du cheddar fondu.",
           image: image,
+          specification: ["Viande"],
         },
         {
           name: "Pizza Margherita",
@@ -69,18 +76,21 @@ function Menu() {
           description:
             "Tomates, mozzarella et basilic sur une pâte fine et croustillante.",
           image: image,
+          specification: ["Végétarien"],
         },
         {
           name: "Risotto aux champignons",
           price: "13.99 €",
           description: "Un risotto crémeux aux champignons et parmesan.",
           image: image,
+          specification: ["Végétarien", "Sans gluten"],
         },
         {
           name: "Filet de saumon grillé",
           price: "16.99 €",
           description: "Saumon grillé accompagné de légumes de saison.",
           image: image,
+          specification: ["Poisson", "Sans gluten"],
         },
         {
           name: "Entrecôte grillée",
@@ -88,24 +98,28 @@ function Menu() {
           description:
             "Entrecôte tendre avec sauce au poivre et frites maison.",
           image: image,
+          specification: ["Viande", "Sans gluten"],
         },
         {
           name: "Pâtes carbonara",
           price: "11.99 €",
           description: "Pâtes crémeuses avec lardons et parmesan.",
           image: image,
+          specification: ["Viande"],
         },
         {
           name: "Poulet rôti à l'ail",
           price: "14.99 €",
           description: "Poulet mariné et rôti lentement avec ail et herbes.",
           image: image,
+          specification: ["Viande", "Sans gluten"],
         },
         {
           name: "Tartare de bœuf",
           price: "15.49 €",
           description: "Tartare de bœuf préparé avec des condiments frais.",
           image: image,
+          specification: ["Viande", "Sans gluten"],
         },
         {
           name: "Magret de canard",
@@ -113,6 +127,7 @@ function Menu() {
           description:
             "Magret de canard servi avec une sauce aux fruits rouges.",
           image: image,
+          specification: ["Viande", "Sans gluten"],
         },
       ],
     },
@@ -124,6 +139,7 @@ function Menu() {
           price: "6.99 €",
           description: "Un cœur coulant au chocolat noir intense.",
           image: image,
+          specification: ["Végétarien"],
         },
         {
           name: "Crème brûlée",
@@ -131,12 +147,14 @@ function Menu() {
           description:
             "Une crème onctueuse avec une fine couche de caramel craquant.",
           image: image,
+          specification: ["Végétarien", "Sans gluten"],
         },
         {
           name: "Tiramisu",
           price: "6.49 €",
           description: "Un dessert italien classique au café et mascarpone.",
           image: image,
+          specification: ["Végétarien"],
         },
         {
           name: "Panna Cotta aux fruits rouges",
@@ -144,6 +162,7 @@ function Menu() {
           description:
             "Un dessert léger accompagné d'un coulis de fruits rouges.",
           image: image,
+          specification: ["Végétarien", "Sans gluten"],
         },
         {
           name: "Cheesecake au caramel",
@@ -151,6 +170,7 @@ function Menu() {
           description:
             "Un cheesecake crémeux avec un nappage au caramel beurre salé.",
           image: image,
+          specification: ["Végétarien"],
         },
       ],
     },
@@ -166,6 +186,7 @@ function Menu() {
           description:
             "Crispy lettuce, grilled chicken, parmesan, and homemade Caesar dressing.",
           image: image,
+          specification: ["Viande"],
         },
         {
           name: "French Onion Soup",
@@ -173,6 +194,7 @@ function Menu() {
           description:
             "Traditional gratinated soup with melted cheese and croutons.",
           image: image,
+          specification: ["Végétarien"],
         },
         {
           name: "Bruschetta with Tomato & Basil",
@@ -180,12 +202,14 @@ function Menu() {
           description:
             "Grilled bread slices with fresh tomatoes, basil, and olive oil.",
           image: image,
+          specification: ["Vegan", "Végétarien"],
         },
         {
           name: "Duck Foie Gras",
           price: "€12.99",
           description: "Foie gras served with fig chutney and toasted bread.",
           image: image,
+          specification: ["Viande"],
         },
         {
           name: "Beef Carpaccio",
@@ -193,6 +217,7 @@ function Menu() {
           description:
             "Thinly sliced marinated beef with parmesan and arugula.",
           image: image,
+          specification: ["Viande"],
         },
       ],
     },
@@ -205,6 +230,7 @@ function Menu() {
           description:
             "Two juicy beef patties, melted cheese, soft bun... The real taste of a burger, made with passion!",
           image: image,
+          specification: ["Viande"],
         },
         {
           name: "Bacon & Cheddar Burger",
@@ -212,6 +238,7 @@ function Menu() {
           description:
             "A delicious burger with crispy bacon and melted cheddar.",
           image: image,
+          specification: ["Viande"],
         },
         {
           name: "Margherita Pizza",
@@ -219,18 +246,21 @@ function Menu() {
           description:
             "Tomatoes, mozzarella, and basil on a thin and crispy crust.",
           image: image,
+          specification: ["Végétarien"],
         },
         {
           name: "Mushroom Risotto",
           price: "€13.99",
           description: "A creamy risotto with mushrooms and parmesan.",
           image: image,
+          specification: ["Végétarien", "Sans gluten"],
         },
         {
           name: "Grilled Salmon Fillet",
           price: "€16.99",
           description: "Grilled salmon served with seasonal vegetables.",
           image: image,
+          specification: ["Poisson", "Sans gluten"],
         },
         {
           name: "Grilled Ribeye Steak",
@@ -238,12 +268,14 @@ function Menu() {
           description:
             "Tender ribeye steak with pepper sauce and homemade fries.",
           image: image,
+          specification: ["Viande", "Sans gluten"],
         },
         {
           name: "Carbonara Pasta",
           price: "€11.99",
           description: "Creamy pasta with bacon and parmesan.",
           image: image,
+          specification: ["Viande"],
         },
         {
           name: "Garlic Roasted Chicken",
@@ -251,18 +283,21 @@ function Menu() {
           description:
             "Marinated chicken slowly roasted with garlic and herbs.",
           image: image,
+          specification: ["Viande", "Sans gluten"],
         },
         {
           name: "Beef Tartare",
           price: "€15.49",
           description: "Freshly prepared beef tartare with condiments.",
           image: image,
+          specification: ["Viande", "Sans gluten"],
         },
         {
           name: "Duck Magret",
           price: "€18.99",
           description: "Duck breast served with a red berry sauce.",
           image: image,
+          specification: ["Viande", "Sans gluten"],
         },
       ],
     },
@@ -274,6 +309,7 @@ function Menu() {
           price: "€6.99",
           description: "A rich chocolate cake with a molten center.",
           image: image,
+          specification: ["Végétarien"],
         },
         {
           name: "Crème Brûlée",
@@ -281,24 +317,28 @@ function Menu() {
           description:
             "A creamy custard with a thin layer of caramelized sugar.",
           image: image,
+          specification: ["Végétarien", "Sans gluten"],
         },
         {
           name: "Tiramisu",
           price: "€6.49",
           description: "A classic Italian dessert with coffee and mascarpone.",
           image: image,
+          specification: ["Végétarien"],
         },
         {
           name: "Panna Cotta with Red Berries",
           price: "€5.99",
           description: "A light dessert topped with a red berry coulis.",
           image: image,
+          specification: ["Végétarien", "Sans gluten"],
         },
         {
           name: "Caramel Cheesecake",
           price: "€6.99",
           description: "A creamy cheesecake with salted caramel topping.",
           image: image,
+          specification: ["Végétarien"],
         },
       ],
     },
