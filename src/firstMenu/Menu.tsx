@@ -385,7 +385,7 @@ function Menu() {
               {category.type}
             </p>
           </div>
-          <div className="justify-items-center">
+          <div className="grid justify-center">
             {category.products.map((product, idx) => (
               <ShowProduct key={idx} {...product} />
             ))}
