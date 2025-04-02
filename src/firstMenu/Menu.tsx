@@ -31,7 +31,7 @@ function Menu() {
           description:
             "Tranches de pain grillé avec tomates fraîches, basilic et huile d'olive.",
           image: image,
-          specification: ["Vegan", "Végétarien"],
+          specification: ["Vegan"],
         },
         {
           name: "Foie gras de canard",
@@ -202,7 +202,7 @@ function Menu() {
           description:
             "Grilled bread slices with fresh tomatoes, basil, and olive oil.",
           image: image,
-          specification: ["Vegan", "Végétarien"],
+          specification: ["Vegan"],
         },
         {
           name: "Duck Foie Gras",
@@ -400,9 +400,13 @@ function Menu() {
         <p className="text-3xl font-bold">Your Restaurant</p>
       </div>
       <div className="flex justify-start bg-white shadow-md py-4 sticky top-0 z-50 overflow-x-auto whitespace-nowrap">
-        {products.map((category) => (
+        {products.map((category, index) => (
           <button
-            className="text-2xl mx-4"
+            className={`text-2xl px-4 ${
+              index === products.length - 1
+                ? "border-r-0"
+                : "border-r-2"
+            }`}
             onClick={() => {
               const element = document.getElementById(category.type);
               if (element) {
