@@ -345,13 +345,16 @@ function Menu() {
   ];
 
   const [products, setProducts] = useState(productsFrench);
+  const [language, setLanguage] = useState("francais");
   const [isVisible, setIsVisible] = useState(false);
 
   const changeLanguage = (language: string) => {
     if (language === "francais") {
       setProducts(productsFrench);
+      setLanguage("francais");
     } else {
       setProducts(productsEnglish);
+      setLanguage("english");
     }
   };
 
@@ -370,10 +373,12 @@ function Menu() {
 
   return (
     <>
-      <div className="h-72 flex items-center justify-center bg-gray-300">
+      <div className="h-[40vh] flex items-center justify-center bg-[url(../restaurant.jpg)] bg-no-repeat bg-cover bg-center">
         <div className="absolute top-5 right-5 flex gap-2">
           <div
-            className="w-8 h-8 rounded-full overflow-hidden"
+            className={`w-8 h-8 rounded-full overflow-hidden ${
+              language === "english" ? "" : "border-2 border-white"
+            }`}
             onClick={() => {
               changeLanguage("francais");
             }}
@@ -385,7 +390,9 @@ function Menu() {
             />
           </div>
           <div
-            className="w-8 h-8 rounded-full overflow-hidden"
+            className={`w-8 h-8 rounded-full overflow-hidden ${
+              language === "english" ? "border-2 border-white" : ""
+            }`}
             onClick={() => {
               changeLanguage("english");
             }}
@@ -397,15 +404,13 @@ function Menu() {
             />
           </div>
         </div>
-        <p className="text-3xl font-bold">Your Restaurant</p>
+        <p className="text-5xl font-bold text-white bg-black/50 p-2 rounded-2xl">Goupil</p>
       </div>
       <div className="flex justify-start bg-white shadow-md py-4 sticky top-0 z-50 overflow-x-auto whitespace-nowrap">
         {products.map((category, index) => (
           <button
             className={`text-2xl px-4 ${
-              index === products.length - 1
-                ? "border-r-0"
-                : "border-r-2"
+              index === products.length - 1 ? "border-r-0" : "border-r-2"
             }`}
             onClick={() => {
               const element = document.getElementById(category.type);
@@ -425,7 +430,7 @@ function Menu() {
       {products.map((category, index) => (
         <div key={index}>
           <div className="text-center my-5">
-            <p className="text-2xl" id={category.type}>
+            <p className="text-2xl underline" id={category.type}>
               {category.type}
             </p>
           </div>
@@ -449,7 +454,7 @@ function Menu() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="w-6 h-6"
+            className="w-8 h-8"
           >
             <polyline points="18 15 12 9 6 15"></polyline>
           </svg>
