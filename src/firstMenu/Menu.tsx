@@ -1,176 +1,159 @@
 import ShowProduct from "./ShowProduct";
-import image from "../assets/image.png";
 import francais from "../assets/francais.png";
 import english from "../assets/english.png";
+import salade_1 from "../assets/salade_1.jpg";
+import salade_2 from "../assets/salade_2.jpg";
+import salade_3 from "../assets/salade_3.jpg";
+import salade_4 from "../assets/salade_4.jpg";
+import salade_5 from "../assets/salade_5.jpg";
+import burger_1 from "../assets/burger_1.jpg";
+import burger_2 from "../assets/burger_2.jpg";
+import burger_3 from "../assets/burger_3.png";
+import burger_4 from "../assets/burger_4.jpg";
+import tapas_1 from "../assets/tapas_1.jpg";
+import tapas_2 from "../assets/tapas_2.jpg";
+import tapas_3 from "../assets/tapas_3.jpg";
+import tartine_1 from "../assets/tartine_1.jpg";
+import tartine_2 from "../assets/tartine_2.jpg";
+import tartine_3 from "../assets/tartine_3.jpg";
+import tartine_4 from "../assets/tartine_4.jpg";
+import logo from "../assets/LOGO_L'IMPOND.png";
+
 import { useEffect, useState } from "react";
 
 function Menu() {
   const productsFrench = [
     {
-      type: "Entrée",
+      type: "Salades",
       products: [
         {
-          name: "Salade César",
-          price: "7.99 €",
+          name: "Crottin de chavignol",
+          price: "9.50 €",
           description:
-            "Laitue croquante, poulet grillé, parmesan et sauce César maison.",
-          image: image,
-          specification: ["Viande"],
-        },
-        {
-          name: "Soupe à l'oignon",
-          price: "6.99 €",
-          description:
-            "Soupe traditionnelle gratinée avec du fromage fondu et des croûtons.",
-          image: image,
+            "Salade verte, crottin de Chavignol chaud, noix et miel.",
+          image: salade_1,
           specification: ["Végétarien"],
         },
         {
-          name: "Bruschetta tomate & basilic",
-          price: "5.99 €",
+          name: "Parisienne",
+          price: "8.90 €",
+          description: "Salade, jambon, gruyère, œuf dur et croûtons.",
+          image: salade_2,
+          specification: ["Viande"],
+        },
+        {
+          name: "Auvergnat",
+          price: "10.50 €",
+          description: "Salade, bleu d'Auvergne, noix et jambon cru.",
+          image: salade_3,
+          specification: ["Viande"],
+        },
+        {
+          name: "Italienne",
+          price: "11.00 €",
+          description: "Salade, tomates, mozzarella, basilic et huile d'olive.",
+          image: salade_4,
+          specification: ["Végétarien"],
+        },
+        {
+          name: "Océane",
+          price: "12.00 €",
+          description: "Salade, crevettes, saumon fumé et avocat.",
+          image: salade_5,
+          specification: ["Poisson", "Sans gluten"],
+        },
+      ],
+    },
+    {
+      type: "Burgers",
+      products: [
+        {
+          name: "La Biquette",
+          price: "13.50 €",
+          description: "Burger au chèvre chaud, miel et roquette.",
+          image: burger_1,
+          specification: ["Végétarien"],
+        },
+        {
+          name: "La Poulette",
+          price: "14.00 €",
+          description: "Burger au poulet croustillant et sauce barbecue.",
+          image: burger_2,
+          specification: ["Viande"],
+        },
+        {
+          name: "Le Grand Mamie",
+          price: "15.00 €",
+          description: "Burger au bœuf, fromage à raclette et oignons confits.",
+          image: burger_3,
+          specification: ["Viande"],
+        },
+        {
+          name: "Le Vegie",
+          price: "12.90 €",
           description:
-            "Tranches de pain grillé avec tomates fraîches, basilic et huile d'olive.",
-          image: image,
+            "Burger végétarien avec steak de légumes et sauce maison.",
+          image: burger_4,
+          specification: ["Vegan"],
+        },
+      ],
+    },
+    {
+      type: "Tapas",
+      products: [
+        {
+          name: "Assiette De Calamars x9",
+          price: "7.90 €",
+          description: "Calamars frits servis avec une sauce tartare.",
+          image: tapas_1,
+          specification: ["Poisson"],
+        },
+        {
+          name: "Onions Rings x12",
+          price: "6.90 €",
+          description: "Rondelles d'oignons croustillantes.",
+          image: tapas_2,
           specification: ["Vegan"],
         },
         {
-          name: "Foie gras de canard",
-          price: "12.99 €",
-          description:
-            "Foie gras accompagné de son chutney de figues et pain grillé.",
-          image: image,
-          specification: ["Viande"],
-        },
-        {
-          name: "Carpaccio de bœuf",
-          price: "10.99 €",
-          description:
-            "Fines tranches de bœuf marinées avec parmesan et roquette.",
-          image: image,
-          specification: ["Viande"],
+          name: "Sticks de Mozza x12",
+          price: "8.00 €",
+          description: "Bâtonnets de mozzarella panés et frits.",
+          image: tapas_3,
+          specification: ["Végétarien"],
         },
       ],
     },
     {
-      type: "Plat",
+      type: "Tartines",
       products: [
         {
-          name: "Double Cheese Burger",
-          price: "14.99 €",
-          description:
-            "Deux steaks juteux, du fromage fondant, un pain moelleux... Le vrai goût du burger, fait avec passion !",
-          image: image,
+          name: "3 Fromages",
+          price: "11.50 €",
+          description: "Tartine au fromage de chèvre, bleu et comté.",
+          image: tartine_1,
+          specification: ["Végétarien"],
+        },
+        {
+          name: "Espagnole",
+          price: "10.90 €",
+          description: "Tartine au chorizo, tomates et fromage fondu.",
+          image: tartine_2,
           specification: ["Viande"],
         },
         {
-          name: "Burger Bacon & Cheddar",
-          price: "15.99 €",
-          description:
-            "Un délicieux burger avec du bacon croustillant et du cheddar fondu.",
-          image: image,
+          name: "Italienne",
+          price: "12.50 €",
+          description: "Tartine au jambon de Parme, tomates et mozzarella.",
+          image: tartine_3,
           specification: ["Viande"],
         },
         {
-          name: "Pizza Margherita",
-          price: "12.99 €",
-          description:
-            "Tomates, mozzarella et basilic sur une pâte fine et croustillante.",
-          image: image,
-          specification: ["Végétarien"],
-        },
-        {
-          name: "Risotto aux champignons",
-          price: "13.99 €",
-          description: "Un risotto crémeux aux champignons et parmesan.",
-          image: image,
-          specification: ["Végétarien", "Sans gluten"],
-        },
-        {
-          name: "Filet de saumon grillé",
-          price: "16.99 €",
-          description: "Saumon grillé accompagné de légumes de saison.",
-          image: image,
-          specification: ["Poisson", "Sans gluten"],
-        },
-        {
-          name: "Entrecôte grillée",
-          price: "19.99 €",
-          description:
-            "Entrecôte tendre avec sauce au poivre et frites maison.",
-          image: image,
-          specification: ["Viande", "Sans gluten"],
-        },
-        {
-          name: "Pâtes carbonara",
-          price: "11.99 €",
-          description: "Pâtes crémeuses avec lardons et parmesan.",
-          image: image,
+          name: "Parisienne",
+          price: "11.90 €",
+          description: "Tartine au jambon blanc, champignons et crème.",
+          image: tartine_4,
           specification: ["Viande"],
-        },
-        {
-          name: "Poulet rôti à l'ail",
-          price: "14.99 €",
-          description: "Poulet mariné et rôti lentement avec ail et herbes.",
-          image: image,
-          specification: ["Viande", "Sans gluten"],
-        },
-        {
-          name: "Tartare de bœuf",
-          price: "15.49 €",
-          description: "Tartare de bœuf préparé avec des condiments frais.",
-          image: image,
-          specification: ["Viande", "Sans gluten"],
-        },
-        {
-          name: "Magret de canard",
-          price: "18.99 €",
-          description:
-            "Magret de canard servi avec une sauce aux fruits rouges.",
-          image: image,
-          specification: ["Viande", "Sans gluten"],
-        },
-      ],
-    },
-    {
-      type: "Dessert",
-      products: [
-        {
-          name: "Fondant au chocolat",
-          price: "6.99 €",
-          description: "Un cœur coulant au chocolat noir intense.",
-          image: image,
-          specification: ["Végétarien"],
-        },
-        {
-          name: "Crème brûlée",
-          price: "5.99 €",
-          description:
-            "Une crème onctueuse avec une fine couche de caramel craquant.",
-          image: image,
-          specification: ["Végétarien", "Sans gluten"],
-        },
-        {
-          name: "Tiramisu",
-          price: "6.49 €",
-          description: "Un dessert italien classique au café et mascarpone.",
-          image: image,
-          specification: ["Végétarien"],
-        },
-        {
-          name: "Panna Cotta aux fruits rouges",
-          price: "5.99 €",
-          description:
-            "Un dessert léger accompagné d'un coulis de fruits rouges.",
-          image: image,
-          specification: ["Végétarien", "Sans gluten"],
-        },
-        {
-          name: "Cheesecake au caramel",
-          price: "6.99 €",
-          description:
-            "Un cheesecake crémeux avec un nappage au caramel beurre salé.",
-          image: image,
-          specification: ["Végétarien"],
         },
       ],
     },
@@ -178,167 +161,138 @@ function Menu() {
 
   const productsEnglish = [
     {
-      type: "Starter",
+      type: "Salads",
       products: [
         {
-          name: "Caesar Salad",
-          price: "€7.99",
+          name: "Crottin de Chavignol",
+          price: "9.50 €",
           description:
-            "Crispy lettuce, grilled chicken, parmesan, and homemade Caesar dressing.",
-          image: image,
-          specification: ["Viande"],
+            "Green salad, warm Chavignol goat cheese, walnuts, and honey.",
+          image: salade_1,
+          specification: ["Vegetarian"],
         },
         {
-          name: "French Onion Soup",
-          price: "€6.99",
+          name: "Parisian",
+          price: "8.90 €",
           description:
-            "Traditional gratinated soup with melted cheese and croutons.",
-          image: image,
-          specification: ["Végétarien"],
+            "Salad, ham, gruyère cheese, hard-boiled egg, and croutons.",
+          image: salade_2,
+          specification: ["Meat"],
         },
         {
-          name: "Bruschetta with Tomato & Basil",
-          price: "€5.99",
+          name: "Auvergnat",
+          price: "10.50 €",
+          description: "Salad, Bleu d'Auvergne cheese, walnuts, and cured ham.",
+          image: salade_3,
+          specification: ["Meat"],
+        },
+        {
+          name: "Italian",
+          price: "11.00 €",
+          description: "Salad, tomatoes, mozzarella, basil, and olive oil.",
+          image: salade_4,
+          specification: ["Vegetarian"],
+        },
+        {
+          name: "Ocean",
+          price: "12.00 €",
+          description: "Salad, shrimp, smoked salmon, and avocado.",
+          image: salade_5,
+          specification: ["Fish", "Gluten-free"],
+        },
+      ],
+    },
+    {
+      type: "Burgers",
+      products: [
+        {
+          name: "La Biquette",
+          price: "13.50 €",
+          description: "Burger with warm goat cheese, honey, and arugula.",
+          image: burger_1,
+          specification: ["Vegetarian"],
+        },
+        {
+          name: "La Poulette",
+          price: "14.00 €",
+          description: "Crispy chicken burger with barbecue sauce.",
+          image: burger_2,
+          specification: ["Meat"],
+        },
+        {
+          name: "Le Grand Mamie",
+          price: "15.00 €",
           description:
-            "Grilled bread slices with fresh tomatoes, basil, and olive oil.",
-          image: image,
+            "Beef burger with raclette cheese and caramelized onions.",
+          image: burger_3,
+          specification: ["Meat"],
+        },
+        {
+          name: "Le Vegie",
+          price: "12.90 €",
+          description:
+            "Vegetarian burger with a vegetable patty and homemade sauce.",
+          image: burger_4,
+          specification: ["Vegan"],
+        },
+      ],
+    },
+    {
+      type: "Tapas",
+      products: [
+        {
+          name: "Calamari Plate x9",
+          price: "7.90 €",
+          description: "Fried calamari served with tartar sauce.",
+          image: tapas_1,
+          specification: ["Fish"],
+        },
+        {
+          name: "Onion Rings x12",
+          price: "6.90 €",
+          description: "Crispy onion rings.",
+          image: tapas_2,
           specification: ["Vegan"],
         },
         {
-          name: "Duck Foie Gras",
-          price: "€12.99",
-          description: "Foie gras served with fig chutney and toasted bread.",
-          image: image,
-          specification: ["Viande"],
-        },
-        {
-          name: "Beef Carpaccio",
-          price: "€10.99",
-          description:
-            "Thinly sliced marinated beef with parmesan and arugula.",
-          image: image,
-          specification: ["Viande"],
+          name: "Mozzarella Sticks x12",
+          price: "8.00 €",
+          description: "Breaded and fried mozzarella sticks.",
+          image: tapas_3,
+          specification: ["Vegetarian"],
         },
       ],
     },
     {
-      type: "Main Course",
+      type: "Tartines",
       products: [
         {
-          name: "Double Cheese Burger",
-          price: "€14.99",
-          description:
-            "Two juicy beef patties, melted cheese, soft bun... The real taste of a burger, made with passion!",
-          image: image,
-          specification: ["Viande"],
+          name: "Three Cheeses",
+          price: "11.50 €",
+          description: "Tartine with goat cheese, blue cheese, and Comté.",
+          image: tartine_1,
+          specification: ["Vegetarian"],
         },
         {
-          name: "Bacon & Cheddar Burger",
-          price: "€15.99",
-          description:
-            "A delicious burger with crispy bacon and melted cheddar.",
-          image: image,
-          specification: ["Viande"],
+          name: "Spanish",
+          price: "10.90 €",
+          description: "Tartine with chorizo, tomatoes, and melted cheese.",
+          image: tartine_2,
+          specification: ["Meat"],
         },
         {
-          name: "Margherita Pizza",
-          price: "€12.99",
-          description:
-            "Tomatoes, mozzarella, and basil on a thin and crispy crust.",
-          image: image,
-          specification: ["Végétarien"],
+          name: "Italian",
+          price: "12.50 €",
+          description: "Tartine with Parma ham, tomatoes, and mozzarella.",
+          image: tartine_3,
+          specification: ["Meat"],
         },
         {
-          name: "Mushroom Risotto",
-          price: "€13.99",
-          description: "A creamy risotto with mushrooms and parmesan.",
-          image: image,
-          specification: ["Végétarien", "Sans gluten"],
-        },
-        {
-          name: "Grilled Salmon Fillet",
-          price: "€16.99",
-          description: "Grilled salmon served with seasonal vegetables.",
-          image: image,
-          specification: ["Poisson", "Sans gluten"],
-        },
-        {
-          name: "Grilled Ribeye Steak",
-          price: "€19.99",
-          description:
-            "Tender ribeye steak with pepper sauce and homemade fries.",
-          image: image,
-          specification: ["Viande", "Sans gluten"],
-        },
-        {
-          name: "Carbonara Pasta",
-          price: "€11.99",
-          description: "Creamy pasta with bacon and parmesan.",
-          image: image,
-          specification: ["Viande"],
-        },
-        {
-          name: "Garlic Roasted Chicken",
-          price: "€14.99",
-          description:
-            "Marinated chicken slowly roasted with garlic and herbs.",
-          image: image,
-          specification: ["Viande", "Sans gluten"],
-        },
-        {
-          name: "Beef Tartare",
-          price: "€15.49",
-          description: "Freshly prepared beef tartare with condiments.",
-          image: image,
-          specification: ["Viande", "Sans gluten"],
-        },
-        {
-          name: "Duck Magret",
-          price: "€18.99",
-          description: "Duck breast served with a red berry sauce.",
-          image: image,
-          specification: ["Viande", "Sans gluten"],
-        },
-      ],
-    },
-    {
-      type: "Dessert",
-      products: [
-        {
-          name: "Chocolate Lava Cake",
-          price: "€6.99",
-          description: "A rich chocolate cake with a molten center.",
-          image: image,
-          specification: ["Végétarien"],
-        },
-        {
-          name: "Crème Brûlée",
-          price: "€5.99",
-          description:
-            "A creamy custard with a thin layer of caramelized sugar.",
-          image: image,
-          specification: ["Végétarien", "Sans gluten"],
-        },
-        {
-          name: "Tiramisu",
-          price: "€6.49",
-          description: "A classic Italian dessert with coffee and mascarpone.",
-          image: image,
-          specification: ["Végétarien"],
-        },
-        {
-          name: "Panna Cotta with Red Berries",
-          price: "€5.99",
-          description: "A light dessert topped with a red berry coulis.",
-          image: image,
-          specification: ["Végétarien", "Sans gluten"],
-        },
-        {
-          name: "Caramel Cheesecake",
-          price: "€6.99",
-          description: "A creamy cheesecake with salted caramel topping.",
-          image: image,
-          specification: ["Végétarien"],
+          name: "Parisian",
+          price: "11.90 €",
+          description: "Tartine with white ham, mushrooms, and cream.",
+          image: tartine_4,
+          specification: ["Meat"],
         },
       ],
     },
@@ -404,7 +358,9 @@ function Menu() {
             />
           </div>
         </div>
-        <p className="text-5xl font-bold text-white bg-black/50 p-2 rounded-2xl">Goupil</p>
+        <p className="text-5xl font-bold text-white bg-black/50 p-2 rounded-2xl w-[80%]">
+          <img src={logo} alt="logo" />
+        </p>
       </div>
       <div className="flex justify-start bg-white shadow-md py-4 sticky top-0 z-50 overflow-x-auto whitespace-nowrap">
         {products.map((category, index) => (
