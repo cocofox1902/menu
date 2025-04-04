@@ -1,4 +1,4 @@
-import ShowProduct from "./ShowProduct";
+import ShowProduct from "./ShowProduct.tsx";
 import francais from "../assets/francais.png";
 import english from "../assets/english.png";
 import salade_1 from "../assets/salade_1.jpg";
@@ -21,7 +21,7 @@ import logo from "../assets/LOGO_L'IMPOND.png";
 
 import { useEffect, useState } from "react";
 
-function Menu1() {
+function Menu2() {
   const productsFrench = [
     {
       type: "Salades",
@@ -420,4 +420,4 @@ function Menu1() {
   );
 }
 
-export default Menu1;
+export default Menu2;
