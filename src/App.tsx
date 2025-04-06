@@ -23,6 +23,8 @@ import tartine_2 from "./assets/tartine_2.jpg";
 import tartine_3 from "./assets/tartine_3.jpg";
 import tartine_4 from "./assets/tartine_4.jpg";
 import Menu6 from "./Menu6/Menu";
+import Menu7 from "./Menu7/Menu";
+import Menu8 from "./Menu8/Menu";
 
 function App() {
   const productsFrench = [
@@ -360,10 +362,35 @@ function App() {
               />
             }
           />
+          <Route
+            path="/7"
+            element={
+              <Menu7
+                productsFrench={productsFrench}
+                productsEnglish={productsEnglish}
+              />
+            }
+          />
+          <Route
+            path="/8"
+            element={
+              <Menu8
+                productsFrench={productsFrench}
+                productsEnglish={productsEnglish}
+              />
+            }
+          />
+          {/* <Route
+            path="/9"
+            element={
+              <Menu9
+                productsFrench={productsFrench}
+                productsEnglish={productsEnglish}
+              />
+            }
+          /> */}
 
           {/*
-            Menu en style timeline verticale
-            Menu avec tags interactifs (gluten-free, vegan, spicy...)
             Menu swipe tinder avec affichage like a la fin
           */}
         </Routes>

@@ -105,8 +105,8 @@ function Menu7({
             </p>
           </div>
           <div className="grid justify-center">
-            {category.products.map((product: any, idx: string) => (
-              <ShowProduct key={idx} {...product} />
+            {category.products.map((product: any, idx: number) => (
+              <ShowProduct key={idx} {...product} index={idx} />
             ))}
           </div>
         </div>
