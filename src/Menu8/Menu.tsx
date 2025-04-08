@@ -49,6 +49,29 @@ function Menu8({
     setSelectedSpecifications([]);
   };
 
+  const getFilteredCategories = (
+    products: any[],
+    selectedSpecifications: string[]
+  ) => {
+    return products
+      .map((category: any) => {
+        const filteredProducts = category.products.filter(
+          (product: any) =>
+            selectedSpecifications.length === 0 ||
+            selectedSpecifications.every((s: string) =>
+              product.specification.includes(s)
+            )
+        );
+        return { ...category, filteredProducts };
+      })
+      .filter((category: any) => category.filteredProducts.length > 0);
+  };
+
+  const filteredCategories = getFilteredCategories(
+    products,
+    selectedSpecifications
+  );
+
   useEffect(() => {
     const handleScroll = () => {
       setIsVisible(window.scrollY > 200);
@@ -111,29 +134,26 @@ function Menu8({
         ))}
       </div>
 
-      {products.map((category: any, index: number) => (
-        <div key={index}>
-          <div className="text-center my-5">
-            <p className="text-2xl underline" id={category.type}>
-              {category.type}
-            </p>
-          </div>
-          <div className="grid justify-center">
-            {category.products.map((product: any, idx: number) => {
-              if (
-                selectedSpecifications.length > 0 &&
-                !product.specification.some((s: string) =>
-                  selectedSpecifications.includes(s)
-                )
-              ) {
-                return null;
-              }
-
-              return <ShowProduct key={idx} {...product} index={idx} />;
-            })}
-          </div>
+      {filteredCategories.length === 0 ? (
+        <div className="text-center my-10 text-xl font-semibold">
+          Pas de produit avec ces spécifications.
         </div>
-      ))}
+      ) : (
+        filteredCategories.map((category: any, index: number) => (
+          <div key={index}>
+            <div className="text-center my-5">
+              <p className="text-2xl underline" id={category.type}>
+                {category.type}
+              </p>
+            </div>
+            <div className="grid justify-center">
+              {category.filteredProducts.map((product: any, idx: number) => (
+                <ShowProduct key={idx} {...product} index={idx} />
+              ))}
+            </div>
+          </div>
+        ))
+      )}
 
       {isVisible && (
         <button
