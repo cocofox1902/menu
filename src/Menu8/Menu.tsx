@@ -133,7 +133,7 @@ function Menu8({
         ).map(({ key, image }) => (
           <button
             key={key}
-            className={`p-2 m-2 border-2 rounded-2xl ${
+            className={`p-1 m-1 border-2 rounded-2xl ${
               selectedSpecifications.includes(key) ? "bg-gray-200" : ""
             }`}
             onClick={() => {
