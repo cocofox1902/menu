@@ -2,6 +2,14 @@ import ShowProduct from "./ShowProduct.tsx";
 import francais from "../assets/francais.png";
 import english from "../assets/english.png";
 import logo from "../assets/LOGO_L'IMPOND.png";
+import meat from "../assets/meat.png";
+import fish from "../assets/fish.png";
+import no_meat from "../assets/no_meat.png";
+import vegan from "../assets/vegan.png";
+import no_gluten from "../assets/no_gluten.png";
+import alchool from "../assets/alchool.png";
+import no_alchool from "../assets/no_alchool.png";
+import spicy from "../assets/spicy.png";
 
 import { useEffect, useState } from "react";
 
@@ -20,16 +28,25 @@ function Menu8({
   >([]);
 
   const specificationListFrancais = [
-    "Végétarien",
-    "Viande",
-    "Poisson",
-    "Sans gluten",
+    { key: "Viande", image: meat },
+    { key: "Poisson", image: fish },
+    { key: "Végétarien", image: no_meat },
+    { key: "Vegan", image: vegan },
+    { key: "Sans gluten", image: no_gluten },
+    { key: "Alcool", image: alchool },
+    { key: "Sans alcool", image: no_alchool },
+    { key: "Épice", image: spicy },
   ];
+
   const specificationListEnglish = [
-    "Vegetarian",
-    "Meat",
-    "Fish",
-    "Gluten-free",
+    { key: "Meat", image: meat },
+    { key: "Fish", image: fish },
+    { key: "Vegetarian", image: no_meat },
+    { key: "Vegan", image: vegan },
+    { key: "Gluten-free", image: no_gluten },
+    { key: "Alcohol", image: alchool },
+    { key: "No alcohol", image: no_alchool },
+    { key: "Spicy", image: spicy },
   ];
 
   const toggleSpecification = (spec: string) => {
@@ -113,15 +130,15 @@ function Menu8({
         {(language === "francais"
           ? specificationListFrancais
           : specificationListEnglish
-        ).map((spec: string) => (
+        ).map(({ key, image }) => (
           <button
-            key={spec}
-            className={`text-xl p-2 m-2 border-2 rounded-2xl ${
-              selectedSpecifications.includes(spec) ? "bg-gray-200" : ""
+            key={key}
+            className={`p-2 m-2 border-2 rounded-2xl ${
+              selectedSpecifications.includes(key) ? "bg-gray-200" : ""
             }`}
             onClick={() => {
-              toggleSpecification(spec);
-              const section = document.getElementById(spec);
+              toggleSpecification(key);
+              const section = document.getElementById(key);
               if (section) {
                 const y =
                   section.getBoundingClientRect().top + window.scrollY - 80;
@@ -129,7 +146,11 @@ function Menu8({
               }
             }}
           >
-            {spec}
+            <img
+              src={image}
+              alt={key}
+              className="w-10 h-10 object-contain shrink-0"
+            />
           </button>
         ))}
       </div>

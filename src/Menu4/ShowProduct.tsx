@@ -1,4 +1,12 @@
 import { useState } from "react";
+import meat from "../assets/meat.png";
+import fish from "../assets/fish.png";
+import no_meat from "../assets/no_meat.png";
+import vegan from "../assets/vegan.png";
+import no_gluten from "../assets/no_gluten.png";
+import alchool from "../assets/alchool.png";
+import no_alchool from "../assets/no_alchool.png";
+import spicy from "../assets/spicy.png";
 
 type ProductProps = {
   name: string;
@@ -35,12 +43,30 @@ const ShowProduct: React.FC<ProductProps> = ({
           <div className="flex gap-[2%] mt-[2%] bg-white/70 rounded-full p-2">
             {specification.map((spec, index) => (
               <span key={index} className="text-white text-xl">
-                {spec === "Viande" && "🥩"}
-                {spec === "Poisson" && "🐟"}
-                {spec === "Végétarien" && "🚫🥩"}
-                {spec === "Vegan" && "🌱"}
-                {spec === "Sans gluten" && "🚫🌾"}
-                {spec === "Alcool" && "🔞"}
+                {spec === "Viande" && (
+                  <img src={meat} alt="Viande" className="w-6 h-6" />
+                )}
+                {spec === "Poisson" && (
+                  <img src={fish} alt="Poisson" className="w-6 h-6" />
+                )}
+                {spec === "Végétarien" && (
+                  <img src={no_meat} alt="Pas de viande" className="w-6 h-6" />
+                )}
+                {spec === "Vegan" && (
+                  <img src={vegan} alt="Vegan" className="w-6 h-6" />
+                )}
+                {spec === "Sans gluten" && (
+                  <img src={no_gluten} alt="Sans gluten" className="w-6 h-6" />
+                )}
+                {spec === "Alcool" && (
+                  <img src={alchool} alt="Alcool" className="w-6 h-6" />
+                )}
+                {spec === "Sans alcool" && (
+                  <img src={no_alchool} alt="Sans alcool" className="w-6 h-6" />
+                )}
+                {spec === "Spicy" && (
+                  <img src={spicy} alt="Spicy" className="w-6 h-6" />
+                )}
               </span>
             ))}
           </div>
