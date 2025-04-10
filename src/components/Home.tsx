@@ -10,6 +10,12 @@ function Home() {
       <button onClick={() => (window.location.href = "/7")}>Menu 7</button>
       <button onClick={() => (window.location.href = "/8")}>Menu 8</button>
       <button onClick={() => (window.location.href = "/9")}>Menu 9</button>
+      <button onClick={() => (window.location.href = "/10")}>Menu 10</button>
+      <button onClick={() => (window.location.href = "/11")}>Menu 11</button>
+      <button onClick={() => (window.location.href = "/12")}>Menu 12</button>
+      <button onClick={() => (window.location.href = "/13")}>Menu 13</button>
+      <button onClick={() => (window.location.href = "/14")}>Menu 14</button>
+      <button onClick={() => (window.location.href = "/15")}>Menu 15</button>
     </div>
   );
 }
