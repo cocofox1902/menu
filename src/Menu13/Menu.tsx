@@ -56,6 +56,11 @@ function Menu13({
     }
   };
 
+  const handleReturn = () => {
+    setCurrentIndex(currentIndex - 1);
+    setLikedProducts(likedProducts.slice(0, -1));
+  };
+
   const renderProductCard = (product: ProductProps) => {
     return (
       <div className="relative w-80 h-[500px] rounded-2xl overflow-hidden shadow-lg mx-auto mb-10">
@@ -86,56 +91,58 @@ function Menu13({
   return (
     <div className="relative min-h-screen bg-gray-100">
       {/* Language Switcher (always on top right) */}
-      <div className="absolute top-5 right-5 flex gap-2 z-10">
-        <div
-          className={`w-8 h-8 rounded-full overflow-hidden cursor-pointer ${
-            language === "english" ? "" : "border-2 border-white"
-          }`}
-          onClick={() => changeLanguage("francais")}
-        >
-          <img
-            src={francais}
-            alt="francais"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div
-          className={`w-8 h-8 rounded-full overflow-hidden cursor-pointer ${
-            language === "english" ? "border-2 border-white" : ""
-          }`}
-          onClick={() => changeLanguage("english")}
-        >
-          <img
-            src={english}
-            alt="english"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </div>
 
       {finished === null && (
-        <div className="flex flex-col items-center min-h-screen bg-[url(../restaurant.jpg)] bg-cover bg-center text-white text-center px-4">
-          <p className="text-5xl font-bold text-white bg-black/50 p-2 rounded-2xl w-[80%] mt-[40%]">
-            <img src={logo} alt="logo" />
-          </p>
-          <div className="flex flex-col items-center mt-[80%]">
-            <p className="text-2xl md:text-3xl font-semibold mb-4 bg-black/50 rounded-2xl p-2">
-              {language === "francais"
-                ? "Prêt à swiper pour votre prochain coup de cœur culinaire ?"
-                : "Ready to swipe your next foodie crush?"}
-            </p>
-            <button
-              onClick={() => setFinished(false)}
-              className="mt-4 px-6 py-3 bg-white text-black rounded-lg shadow-lg font-semibold hover:bg-gray-200 transition"
+        <>
+          <div className="absolute top-5 right-5 flex gap-2 z-10">
+            <div
+              className={`w-8 h-8 rounded-full overflow-hidden cursor-pointer ${
+                language === "english" ? "" : "border-2 border-white"
+              }`}
+              onClick={() => changeLanguage("francais")}
             >
-              {language === "francais" ? "Commencer" : "Start"}
-            </button>
+              <img
+                src={francais}
+                alt="francais"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div
+              className={`w-8 h-8 rounded-full overflow-hidden cursor-pointer ${
+                language === "english" ? "border-2 border-white" : ""
+              }`}
+              onClick={() => changeLanguage("english")}
+            >
+              <img
+                src={english}
+                alt="english"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
-        </div>
+          <div className="flex flex-col items-center min-h-screen bg-[url(../restaurant.jpg)] bg-cover bg-center text-white text-center px-4">
+            <p className="text-5xl font-bold text-white bg-black/50 p-2 rounded-2xl w-[80%] mt-[40%]">
+              <img src={logo} alt="logo" />
+            </p>
+            <div className="flex flex-col items-center mt-[80%]">
+              <p className="text-2xl md:text-3xl font-semibold mb-4 bg-black/50 rounded-2xl p-2">
+                {language === "francais"
+                  ? "Prêt à swiper pour votre prochain coup de cœur culinaire ?"
+                  : "Ready to swipe your next foodie crush?"}
+              </p>
+              <button
+                onClick={() => setFinished(false)}
+                className="mt-4 px-6 py-3 bg-white text-black rounded-lg shadow-lg font-semibold hover:bg-gray-200 transition"
+              >
+                {language === "francais" ? "Commencer" : "Start"}
+              </button>
+            </div>
+          </div>
+        </>
       )}
 
       {finished === false && (
-        <>
+        <div className="m-4">
           {renderProductCard(products[currentIndex])}
           <div className="flex justify-center gap-6 mt-4">
             <button
@@ -144,6 +151,14 @@ function Menu13({
             >
               {language === "francais" ? "Passer" : "Dislike"}
             </button>
+            {likedProducts.length > 0 && (
+              <button
+                className="bg-gray-500 text-white px-6 py-2 rounded-lg"
+                onClick={() => handleReturn()}
+              >
+                {language === "francais" ? "Revenir" : "Back"}
+              </button>
+            )}
             <button
               className="bg-green-500 text-white px-6 py-2 rounded-lg"
               onClick={() => handleLike(true)}
@@ -151,7 +166,7 @@ function Menu13({
               {language === "francais" ? "Aimer" : "Like"}
             </button>
           </div>
-        </>
+        </div>
       )}
 
       {finished === true && (
