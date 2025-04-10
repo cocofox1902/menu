@@ -99,7 +99,7 @@ function Menu3({
           </div>
           <div
             className={
-              `grid justify-center` +
+              `grid` +
               (selectedType.includes(category.type) ? "" : " hidden")
             }
           >

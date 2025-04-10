@@ -104,7 +104,7 @@ function Menu2({
               {category.type}
             </p>
           </div>
-          <div className="grid justify-center">
+          <div className="grid">
             {category.products.map((product: any, idx: string) => (
               <ShowProduct key={idx} {...product} />
             ))}

@@ -167,7 +167,7 @@ function Menu8({
                 {category.type}
               </p>
             </div>
-            <div className="grid justify-center">
+            <div className="grid">
               {category.filteredProducts.map((product: any, idx: number) => (
                 <ShowProduct key={idx} {...product} index={idx} />
               ))}

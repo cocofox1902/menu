@@ -40,7 +40,7 @@ function Menu10({
   }, []);
 
   return (
-    <div className="bg-[#1a1a1a] text-white min-h-screen font-serif">
+    <div className="bg-[#1a1a1a] text-white min-h-screen font-pangolin">
       <div className="h-[40vh] flex items-center justify-center bg-[url(../restaurant.jpg)] bg-no-repeat bg-cover bg-center relative">
         <div className="absolute top-5 right-5 flex gap-2">
           <div
@@ -105,7 +105,7 @@ function Menu10({
               {category.type}
             </p>
           </div>
-          <div className="grid justify-center">
+          <div className="grid">
             {category.products.map((product: any, idx: number) => (
               <ShowProduct key={idx} {...product} />
             ))}
