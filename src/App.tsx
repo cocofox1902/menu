@@ -27,6 +27,9 @@ import Menu7 from "./Menu7/Menu";
 import Menu8 from "./Menu8/Menu";
 import Menu9 from "./Menu9/Menu";
 import Menu10 from "./Menu10/Menu";
+import Menu11 from "./Menu11/Menu";
+import Menu12 from "./Menu12/Menu";
+import Menu13 from "./Menu13/Menu";
 
 function App() {
   const productsFrench = [
@@ -395,6 +398,33 @@ function App() {
             path="/10"
             element={
               <Menu10
+                productsFrench={productsFrench}
+                productsEnglish={productsEnglish}
+              />
+            }
+          />
+          <Route
+            path="/11"
+            element={
+              <Menu11
+                productsFrench={productsFrench}
+                productsEnglish={productsEnglish}
+              />
+            }
+          />
+          <Route
+            path="/12"
+            element={
+              <Menu12
+                productsFrench={productsFrench}
+                productsEnglish={productsEnglish}
+              />
+            }
+          />
+          <Route
+            path="/13"
+            element={
+              <Menu13
                 productsFrench={productsFrench}
                 productsEnglish={productsEnglish}
               />
