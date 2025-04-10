@@ -25,6 +25,7 @@ import tartine_4 from "./assets/tartine_4.jpg";
 import Menu6 from "./Menu6/Menu";
 import Menu7 from "./Menu7/Menu";
 import Menu8 from "./Menu8/Menu";
+import Menu9 from "./Menu9/Menu";
 
 function App() {
   const productsFrench = [
@@ -380,7 +381,7 @@ function App() {
               />
             }
           />
-          {/* <Route
+          <Route
             path="/9"
             element={
               <Menu9
@@ -388,7 +389,7 @@ function App() {
                 productsEnglish={productsEnglish}
               />
             }
-          /> */}
+          />
 
           {/*
             Menu swipe tinder avec affichage like a la fin

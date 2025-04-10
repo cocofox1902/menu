@@ -9,6 +9,7 @@ function Home() {
       <button onClick={() => (window.location.href = "/6")}>Menu 6</button>
       <button onClick={() => (window.location.href = "/7")}>Menu 7</button>
       <button onClick={() => (window.location.href = "/8")}>Menu 8</button>
+      <button onClick={() => (window.location.href = "/9")}>Menu 9</button>
     </div>
   );
 }
