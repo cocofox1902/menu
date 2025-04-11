@@ -72,32 +72,6 @@ function Menu10({
           <img src={logo} alt="logo" />
         </p>
       </div>
-
-      {/* Sticky navigation */}
-      <div className="flex justify-start bg-[#2a2a2a] text-white shadow-md py-4 sticky top-0 z-50 overflow-x-auto whitespace-nowrap border-b border-white/20">
-        {products.map((category: any, index: number) => (
-          <button
-            key={index}
-            className={`text-xl px-4 hover:underline ${
-              index === products.length - 1
-                ? "border-r-0"
-                : "border-r border-white/30"
-            }`}
-            onClick={() => {
-              const element = document.getElementById(category.type);
-              if (element) {
-                const y =
-                  element.getBoundingClientRect().top + window.scrollY - 80;
-                window.scrollTo({ top: y, behavior: "smooth" });
-              }
-            }}
-          >
-            {category.type}
-          </button>
-        ))}
-      </div>
-
-      {/* Product categories */}
       {products.map((category: any, index: number) => (
         <div key={index}>
           <div className="text-center my-5">
@@ -112,8 +86,6 @@ function Menu10({
           </div>
         </div>
       ))}
-
-      {/* Scroll to top button */}
       {isVisible && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

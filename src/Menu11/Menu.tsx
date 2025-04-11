@@ -51,7 +51,6 @@ function Menu11({
           <source src="../restaurant.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-
         <div className="absolute top-5 right-5 flex gap-2">
           <div
             className={`w-8 h-8 rounded-full overflow-hidden ${
@@ -82,33 +81,10 @@ function Menu11({
             />
           </div>
         </div>
-
         <p className="text-5xl font-bold text-white bg-black/50 p-2 rounded-2xl w-[80%] absolute">
           <img src={logo} alt="logo" />
         </p>
       </div>
-
-      <div className="flex justify-start bg-white shadow-md py-4 sticky top-0 z-50 overflow-x-auto whitespace-nowrap">
-        {products.map((category: any, index: number) => (
-          <button
-            className={`text-2xl px-4 ${
-              index === products.length - 1 ? "border-r-0" : "border-r-2"
-            }`}
-            onClick={() => {
-              const element = document.getElementById(category.type);
-              if (element) {
-                const y =
-                  element.getBoundingClientRect().top + window.scrollY + -80;
-
-                window.scrollTo({ top: y, behavior: "smooth" });
-              }
-            }}
-          >
-            {category.type}
-          </button>
-        ))}
-      </div>
-
       {products.map((category: any, index: number) => (
         <div key={index}>
           <div className="text-center my-5">

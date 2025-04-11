@@ -76,27 +76,6 @@ function Menu12({
           <img src={logo} alt="logo" />
         </p>
       </div>
-      <div className="flex justify-start bg-white shadow-md py-4 sticky top-0 z-50 overflow-x-auto whitespace-nowrap">
-        {products.map((category: any, index: number) => (
-          <button
-            className={`text-2xl px-4 ${
-              index === products.length - 1 ? "border-r-0" : "border-r-2"
-            }`}
-            onClick={() => {
-              const element = document.getElementById(category.type);
-              if (element) {
-                const y =
-                  element.getBoundingClientRect().top + window.scrollY + -80;
-
-                window.scrollTo({ top: y, behavior: "smooth" });
-              }
-            }}
-          >
-            {category.type}
-          </button>
-        ))}
-      </div>
-
       {products.map((category: any, index: number) => (
         <div key={index}>
           <div className="text-center my-5">
