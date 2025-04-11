@@ -48,7 +48,10 @@ function Menu11({
           muted
           loop
         >
-          <source src="../restaurant.mp4" type="video/mp4" />
+          <source
+            src="https://media.istockphoto.com/id/1594742918/fr/vid%C3%A9o/le-chef-pr%C3%A9pare-des-filets-de-thon-pan%C3%A9s-dans-la-cuisine-du-restaurant.mp4?s=mp4-640x640-is&k=20&c=9CM7Ij-MSEooZ9X2Zjh1VmZ3Lpy7XjWv1yT1LcHEqno="
+            type="video/mp4"
+          />
           Your browser does not support the video tag.
         </video>
         <div className="absolute top-5 right-5 flex gap-2">

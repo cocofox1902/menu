@@ -38,7 +38,10 @@ const ShowProduct: React.FC<ProductProps> = ({
         muted
         loop
       >
-        <source src="../restaurant.mp4" type="video/mp4" />
+        <source
+          src="https://media.istockphoto.com/id/1371167585/fr/vid%C3%A9o/savoureux-steak.mp4?s=mp4-640x640-is&k=20&c=uE_Vmz4DvgQywOpqGIIbEDxSBeaREvIPQQVcmCDn9DA="
+          type="video/mp4"
+        />
         Your browser does not support the video tag.
       </video>
       {isHovered && (
