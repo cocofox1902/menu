@@ -2,7 +2,7 @@ function Home() {
   return (
     <div className="flex flex-col justify-evenly my-8 gap-10 text-center">
       <p className="text-2xl font-bold underline">Sélecteurs</p>
-      <button onClick={() => (window.location.href = "/2")}>
+      <button onClick={() => (window.location.href = "/14")}>
         Sélecteur par type
       </button>
       <button onClick={() => (window.location.href = "/3")}>

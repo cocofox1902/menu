@@ -5,7 +5,7 @@ import logo from "../assets/LOGO_L'IMPOND.png";
 
 import { useEffect, useState } from "react";
 
-function Menu11({
+function Menu14({
   productsFrench,
   productsEnglish,
 }: {
@@ -41,20 +41,7 @@ function Menu11({
 
   return (
     <>
-      <div className="relative h-[40vh] flex items-center justify-center">
-        <video
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source
-            src="https://media.istockphoto.com/id/1594742918/fr/vid%C3%A9o/le-chef-pr%C3%A9pare-des-filets-de-thon-pan%C3%A9s-dans-la-cuisine-du-restaurant.mp4?s=mp4-640x640-is&k=20&c=9CM7Ij-MSEooZ9X2Zjh1VmZ3Lpy7XjWv1yT1LcHEqno="
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
+      <div className="h-[40vh] flex items-center justify-center bg-[url(../restaurant.jpg)] bg-no-repeat bg-cover bg-center">
         <div className="absolute top-5 right-5 flex gap-2">
           <div
             className={`w-8 h-8 rounded-full overflow-hidden ${
@@ -85,10 +72,31 @@ function Menu11({
             />
           </div>
         </div>
-        <p className="text-5xl font-bold text-white bg-black/50 p-2 rounded-2xl w-[80%] absolute">
+        <p className="text-5xl font-bold text-white bg-black/50 p-2 rounded-2xl w-[80%]">
           <img src={logo} alt="logo" />
         </p>
       </div>
+      <div
+        className="flex justify-center gap-4 flex-wrap py-2 bg-gray-100"
+        role="list"
+      >
+        {products.map((category: any, index: number) => (
+          <div
+            key={index}
+            role="listitem"
+            className="cursor-pointer p-2 text-black border border-black rounded-lg transition-colors"
+            onClick={() => {
+              const section = document.getElementById(category.type);
+              if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
+            {category.type}
+          </div>
+        ))}
+      </div>
+
       {products.map((category: any, index: number) => (
         <div key={index}>
           <div className="text-center my-5">
@@ -126,4 +134,4 @@ function Menu11({
   );
 }
 
-export default Menu11;
+export default Menu14;
