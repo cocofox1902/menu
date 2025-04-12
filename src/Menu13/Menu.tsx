@@ -63,13 +63,8 @@ function Menu13({
 
   const renderProductCard = (product: ProductProps) => {
     return (
-      <div className="relative w-80 h-[500px] rounded-2xl overflow-hidden shadow-lg mx-auto mb-10">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-4">
+      <div className="p-2 bg-black/50 rounded-2xl">
+        <div className="inset-0 flex flex-col justify-end p-4">
           <div className="flex flex-wrap gap-2 mb-2">
             {product.specification.map((spec, i) => (
               <span
@@ -89,9 +84,7 @@ function Menu13({
   };
 
   return (
-    <div className="relative min-h-screen bg-gray-100">
-      {/* Language Switcher (always on top right) */}
-
+    <div className="relative min-h-screen">
       {finished === null && (
         <>
           <div className="absolute top-5 right-5 flex gap-2 z-10">
@@ -120,7 +113,7 @@ function Menu13({
               />
             </div>
           </div>
-          <div className="flex flex-col items-center min-h-screen bg-[url(../restaurant.jpg)] bg-cover bg-center text-white text-center px-4">
+          <div className="flex flex-col items-center h-screen bg-[url(../restaurant.jpg)] bg-cover bg-center text-white text-center px-4">
             <p className="text-5xl font-bold text-white bg-black/50 p-2 rounded-2xl w-[80%] mt-[40%]">
               <img src={logo} alt="logo" />
             </p>
@@ -140,31 +133,42 @@ function Menu13({
           </div>
         </>
       )}
-
       {finished === false && (
-        <div className="m-4">
-          {renderProductCard(products[currentIndex])}
-          <div className="flex justify-center gap-6 mt-4">
-            <button
-              className="bg-red-500 text-white px-6 py-2 rounded-lg"
-              onClick={() => handleLike(false)}
-            >
-              {language === "francais" ? "Passer" : "Dislike"}
-            </button>
-            {likedProducts.length > 0 && (
+        <div
+          className="relative h-screen bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${products[currentIndex].image})`,
+          }}
+        >
+          <div className="absolute inset-0 z-0" />
+
+          <div className="relative z-10 flex flex-col justify-end h-full px-4">
+            {renderProductCard(products[currentIndex])}
+
+            <div className="flex justify-between flex-wrap gap-4 mt-4 pb-10">
               <button
-                className="bg-gray-500 text-white px-6 py-2 rounded-lg"
-                onClick={() => handleReturn()}
+                className="bg-red-500 text-white px-6 py-2 rounded-lg"
+                onClick={() => handleLike(false)}
               >
-                {language === "francais" ? "Revenir" : "Back"}
+                {language === "francais" ? "Passer" : "Dislike"}
               </button>
-            )}
-            <button
-              className="bg-green-500 text-white px-6 py-2 rounded-lg"
-              onClick={() => handleLike(true)}
-            >
-              {language === "francais" ? "Aimer" : "Like"}
-            </button>
+
+              {likedProducts.length > 0 && (
+                <button
+                  className="bg-gray-500 text-white px-6 py-2 rounded-lg"
+                  onClick={() => handleReturn()}
+                >
+                  {language === "francais" ? "Revenir" : "Back"}
+                </button>
+              )}
+
+              <button
+                className="bg-green-500 text-white px-6 py-2 rounded-lg"
+                onClick={() => handleLike(true)}
+              >
+                {language === "francais" ? "Aimer" : "Like"}
+              </button>
+            </div>
           </div>
         </div>
       )}
@@ -194,6 +198,14 @@ function Menu13({
                 </div>
               </div>
             ))}
+          </div>
+          <div className="flex justify-center mt-6">
+            <button
+              onClick={() => window.location.reload()}
+              className="bg-gray-500 text-white px-6 py-2 rounded-lg"
+            >
+              {language === "francais" ? "Recommencer" : "Restart"}
+            </button>
           </div>
         </div>
       )}
