@@ -37,6 +37,7 @@ const ShowProduct: React.FC<ProductProps> = ({
         autoPlay
         muted
         loop
+        playsInline
       >
         <source
           src="https://media.istockphoto.com/id/1371167585/fr/vid%C3%A9o/savoureux-steak.mp4?s=mp4-640x640-is&k=20&c=uE_Vmz4DvgQywOpqGIIbEDxSBeaREvIPQQVcmCDn9DA="

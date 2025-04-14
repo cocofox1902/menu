@@ -77,7 +77,7 @@ function Menu14({
         </p>
       </div>
       <div
-        className="flex justify-center gap-4 flex-wrap py-2 bg-gray-100"
+        className="flex justify-center gap-4 flex-wrap py-2"
         role="list"
       >
         {products.map((category: any, index: number) => (

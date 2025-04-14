@@ -54,10 +54,9 @@ function Home() {
       <button onClick={() => (window.location.href = "/13")}>
         Produit style Tinder
       </button>
-
-      <p className="text-2xl font-bold underline">À faire</p>
-      <button onClick={() => (window.location.href = "/14")}>Menu 14</button>
-      <button onClick={() => (window.location.href = "/15")}>Menu 15</button>
+      <button onClick={() => (window.location.href = "/15")}>
+        Menu Aléatoire
+      </button>
     </div>
   );
 }

@@ -3,9 +3,9 @@ import francais from "../assets/francais.png";
 import english from "../assets/english.png";
 import logo from "../assets/LOGO_L'IMPOND.png";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
-function Menu9({
+function Menu15({
   productsFrench,
   productsEnglish,
 }: {
@@ -15,8 +15,9 @@ function Menu9({
   const [products, setProducts] = useState(productsFrench);
   const [language, setLanguage] = useState("francais");
   const [isVisible, setIsVisible] = useState(false);
-  const productSectionRef = useRef<HTMLDivElement | null>(null);
   const [start, setStart] = useState(false);
+  const [random, setRandom] = useState(false);
+  const [randomProducts, setRandomProducts] = useState<any[]>([]);
 
   const changeLanguage = (language: string) => {
     if (language === "francais") {
@@ -26,6 +27,16 @@ function Menu9({
       setProducts(productsEnglish);
       setLanguage("english");
     }
+  };
+
+  const getRandomProducts = (allProducts: any[]) => {
+    return allProducts.map((category) => {
+      const randomIndex = Math.floor(Math.random() * category.products.length);
+      return {
+        type: category.type,
+        product: category.products[randomIndex],
+      };
+    });
   };
 
   useEffect(() => {
@@ -78,22 +89,55 @@ function Menu9({
           >
             {language === "francais" ? "Démarrer" : "Start"}
           </button>
+          <button
+            onClick={() => {
+              setStart(true);
+              setRandom(true);
+              const selectedProducts = getRandomProducts(products);
+              setRandomProducts(selectedProducts);
+            }}
+            className="mt-6 px-6 py-3 bg-white text-black font-semibold rounded-full shadow-lg hover:bg-gray-100 transition"
+          >
+            {language === "francais" ? "Aléatoire" : "Random"}
+          </button>
         </div>
       ) : (
-        <div
-          ref={productSectionRef}
-          className="h-screen overflow-y-scroll snap-y snap-mandatory"
-        >
-          {products.map((category: any, index: number) => (
-            <div key={index}>
-              {category.products.map((product: any, idx: number) => (
-                <div key={idx} className="snap-start">
+        <>
+          <div className="h-[40vh] flex items-center justify-center bg-[url(../restaurant.jpg)] bg-no-repeat bg-cover bg-center">
+            <p className="text-5xl font-bold text-white bg-black/50 p-2 rounded-2xl w-[80%]">
+              <img src={logo} alt="logo" />
+            </p>
+          </div>
+          {random === false ? (
+            <div>
+              {products.map((category: any, index: number) => (
+                <div key={index}>
+                  <div className="text-center my-5">
+                    <p className="text-2xl underline" id={category.type}>
+                      {category.type}
+                    </p>
+                  </div>
+                  <div className="grid">
+                    {category.products.map((product: any, idx: string) => (
+                      <ShowProduct key={idx} {...product} />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div>
+              {randomProducts.map(({ type, product }, index) => (
+                <div key={index} className="mb-6">
+                  <div className="text-center my-5">
+                    <p className="text-2xl underline">{type}</p>
+                  </div>
                   <ShowProduct {...product} />
                 </div>
               ))}
             </div>
-          ))}
-        </div>
+          )}
+        </>
       )}
 
       {isVisible && (
@@ -119,4 +163,4 @@ function Menu9({
   );
 }
 
-export default Menu9;
+export default Menu15;

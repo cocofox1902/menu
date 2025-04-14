@@ -31,6 +31,7 @@ import Menu11 from "./Menu11/Menu";
 import Menu12 from "./Menu12/Menu";
 import Menu13 from "./Menu13/Menu";
 import Menu14 from "./Menu14/Menu";
+import Menu15 from "./Menu15/Menu";
 
 function App() {
   const productsFrench = [
@@ -435,6 +436,15 @@ function App() {
             path="/14"
             element={
               <Menu14
+                productsFrench={productsFrench}
+                productsEnglish={productsEnglish}
+              />
+            }
+          />
+          <Route
+            path="/15"
+            element={
+              <Menu15
                 productsFrench={productsFrench}
                 productsEnglish={productsEnglish}
               />
