@@ -57,6 +57,10 @@ function Home() {
       <button onClick={() => (window.location.href = "/15")}>
         Menu Aléatoire
       </button>
+      <p className="text-2xl font-bold underline">Exemple</p>
+      <button onClick={() => (window.location.href = "/17")}>
+        Menu PizzaHut
+      </button>
     </div>
   );
 }

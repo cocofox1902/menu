@@ -32,6 +32,9 @@ import Menu12 from "./Menu12/Menu";
 import Menu13 from "./Menu13/Menu";
 import Menu14 from "./Menu14/Menu";
 import Menu15 from "./Menu15/Menu";
+import Menu16 from "./Menu16/Menu";
+import Menu17 from "./PizzaHut/Menu";
+import Menu18 from "./impond/Menu";
 
 function App() {
   const productsFrench = [
@@ -450,6 +453,17 @@ function App() {
               />
             }
           />
+          <Route
+            path="/16"
+            element={
+              <Menu16
+                productsFrench={productsFrench}
+                productsEnglish={productsEnglish}
+              />
+            }
+          />
+          <Route path="/17" element={<Menu17 />} />
+          <Route path="/18" element={<Menu18 />} />
         </Routes>
         <Footer />
       </BrowserRouter>
