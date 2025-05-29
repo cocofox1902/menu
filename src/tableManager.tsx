@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const productsFrench = [
   {
@@ -318,9 +318,6 @@ function TablesManager() {
     setTables(updated);
   };
 
-  const isSelected = (product: Product) =>
-    selectedProducts.some((p) => p.name === product.name);
-
   const createTable = () => {
     setShowCreationTable(true);
   };
@@ -371,10 +368,6 @@ function TablesManager() {
 
             <div className="grid grid-cols-5 gap-2 mb-4">
               {allProducts.map((product, index) => {
-                const selected = isSelected(product);
-                const current = selectedProducts.find(
-                  (p: any) => p.name === product.name
-                );
                 return (
                   <div
                     key={index}
