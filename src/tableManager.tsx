@@ -254,14 +254,25 @@ const productsFrench = [
   },
 ];
 
+interface Product {
+  name: string;
+  price: string;
+  quantity?: number;
+}
+
+interface Table {
+  name: string;
+  products: Product[];
+}
+
 const allProducts = productsFrench.flatMap((cat) => cat.products);
 
 function TablesManager() {
-  const [tables, setTables] = useState([]);
-  const [tableName, setTableName] = useState("");
-  const [selectedProducts, setSelectedProducts] = useState([]);
-  const [editingIndex, setEditingIndex] = useState(null);
-  const [showCreationTable, setShowCreationTable] = useState(false);
+  const [tables, setTables] = useState<Table[]>([]);
+  const [tableName, setTableName] = useState<string>("");
+  const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
+  const [editingIndex, setEditingIndex] = useState<number | null>(null);
+  const [showCreationTable, setShowCreationTable] = useState<boolean>(false);
 
   useEffect(() => {
     const stored = localStorage.getItem("restaurant_tables");
@@ -275,7 +286,7 @@ function TablesManager() {
   const handleAddOrUpdateTable = () => {
     if (!tableName.trim()) return;
 
-    const newTable = {
+    const newTable: Table = {
       name: tableName,
       products: selectedProducts,
     };
@@ -294,7 +305,7 @@ function TablesManager() {
     setShowCreationTable(false);
   };
 
-  const handleEdit = (index) => {
+  const handleEdit = (index: number) => {
     const table = tables[index];
     setTableName(table.name);
     setSelectedProducts(table.products);
@@ -302,12 +313,12 @@ function TablesManager() {
     setShowCreationTable(true);
   };
 
-  const handleDelete = (index) => {
+  const handleDelete = (index: number) => {
     const updated = tables.filter((_, i) => i !== index);
     setTables(updated);
   };
 
-  const isSelected = (product) =>
+  const isSelected = (product: Product) =>
     selectedProducts.some((p) => p.name === product.name);
 
   const createTable = () => {
@@ -362,7 +373,7 @@ function TablesManager() {
               {allProducts.map((product, index) => {
                 const selected = isSelected(product);
                 const current = selectedProducts.find(
-                  (p) => p.name === product.name
+                  (p: any) => p.name === product.name
                 );
                 return (
                   <div
@@ -374,17 +385,17 @@ function TablesManager() {
                       <button
                         className="bg-red-500 text-white px-2 rounded"
                         onClick={() => {
-                          const current = selectedProducts.find(
-                            (p) => p.name === product.name
+                          const current: any = selectedProducts.find(
+                            (p: any) => p.name === product.name
                           );
                           if (!current) return;
                           if (current.quantity <= 1) {
-                            setSelectedProducts((prev) =>
-                              prev.filter((p) => p.name !== product.name)
+                            setSelectedProducts((prev: any) =>
+                              prev.filter((p: any) => p.name !== product.name)
                             );
                           } else {
-                            setSelectedProducts((prev) =>
-                              prev.map((p) =>
+                            setSelectedProducts((prev: any) =>
+                              prev.map((p: any) =>
                                 p.name === product.name
                                   ? { ...p, quantity: p.quantity - 1 }
                                   : p
@@ -396,25 +407,26 @@ function TablesManager() {
                         -
                       </button>
                       <span className="w-6 text-center">
-                        {selectedProducts.find((p) => p.name === product.name)
-                          ?.quantity || 0}
+                        {selectedProducts.find(
+                          (p: any) => p.name === product.name
+                        )?.quantity || 0}
                       </span>
                       <button
                         className="bg-green-500 text-white px-2 rounded"
                         onClick={() => {
-                          const existing = selectedProducts.find(
-                            (p) => p.name === product.name
+                          const existing: any = selectedProducts.find(
+                            (p: any) => p.name === product.name
                           );
                           if (existing) {
-                            setSelectedProducts((prev) =>
-                              prev.map((p) =>
+                            setSelectedProducts((prev: any) =>
+                              prev.map((p: any) =>
                                 p.name === product.name
                                   ? { ...p, quantity: p.quantity + 1 }
                                   : p
                               )
                             );
                           } else {
-                            setSelectedProducts((prev) => [
+                            setSelectedProducts((prev: any) => [
                               ...prev,
                               { ...product, quantity: 1 },
                             ]);
@@ -446,7 +458,7 @@ function TablesManager() {
         >
           <p className="flex justify-between align-center">Nouvelle table</p>
         </div>
-        {tables.map((table, index) => (
+        {tables.map((table: any, index: any) => (
           <div key={index} className="mb-4 p-4 bg-gray-100 rounded shadow">
             <div className="flex justify-between items-center mb-2">
               <h2 className="text-lg font-bold">{table.name}</h2>
@@ -466,7 +478,7 @@ function TablesManager() {
               </div>
             </div>
             <ul className="pl-4 list-disc">
-              {table.products.map((product, i) => (
+              {table.products.map((product: any, i: any) => (
                 <li key={i}>
                   {product.quantity} x {product.name} ({product.price})
                 </li>
@@ -476,7 +488,7 @@ function TablesManager() {
             <div className="mt-2 font-semibold">
               Total :{" "}
               {table.products
-                .reduce((sum, product) => {
+                .reduce((sum: any, product: any) => {
                   const numericPrice = parseFloat(
                     product.price.replace(",", ".").replace("€", "").trim()
                   );
