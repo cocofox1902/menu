@@ -35,6 +35,7 @@ import Menu15 from "./Menu15/Menu";
 import Menu16 from "./Menu16/Menu";
 import Menu17 from "./PizzaHut/Menu";
 import Menu18 from "./impond/Menu";
+import TablesManager from "./tableManager.jsx";
 
 function App() {
   const productsFrench = [
@@ -464,6 +465,7 @@ function App() {
           />
           <Route path="/17" element={<Menu17 />} />
           <Route path="/18" element={<Menu18 />} />
+          <Route path="/19" element={<TablesManager />} />
         </Routes>
         <Footer />
       </BrowserRouter>
